@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+//Suppose your cell phone carrier charges you $29.95 for up to 300 minutes of calls, 
+//and $0.45 for each additional minute, 
+//plus 12.5 percent taxes and fees. Give an algorithm to compute the monthly charge for a given number of minutes.
+
+public class cellphonecostsPrimitives 
+{
+  public static void main (String [] args) 
+  {
+
+    double monthcost= 29.95;
+    
+    int maxminutes=300;
+    double addminutes= 0.45;
+    double pctaxes= 12.5;
+    int percent=100;
+    pctaxes=pctaxes/percent;
+    
+    Scanner scan = new Scanner (System.in);
+    System.out.println("Input total minutes used: ");
+    int minutes=scan.nextInt();
+    if (minutes <= 300){
+   
+  
+   System.out.println("You have used " +minutes +" minutes"); 
+   System.out.println("at a cost of " +monthcost/minutes +" pence per minute"); 
+   System.out.println ("plus taxes and fees of " +pctaxes);
+   System.out.println ("your gross cost per month is £" +monthcost);
+   System.out.println ("Your taxes and fees per month is £" +pctaxes*monthcost);
+   pctaxes=pctaxes*monthcost+monthcost;
+   System.out.println ("Your net cost per month is £" +pctaxes);
+    } 
+    
+    else {
+      minutes=minutes-maxminutes;
+  System.out.println ("Your overage minutes are " +minutes);
+  System.out.println ("at a cost of £" +monthcost+ " plus £" +minutes*addminutes);
+ monthcost=monthcost+minutes*addminutes;
+  System.out.println ("Your gross cost is £ " +monthcost);
+  pctaxes=pctaxes*monthcost+monthcost;
+  System.out.println ("Your net cost per month is £" +pctaxes);
+  
+    }
+                         }
+     }
